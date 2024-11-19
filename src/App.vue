@@ -1,26 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    html, body {
+         /*vw 和 vh 代表的是浏览器的宽和高的百分比*/
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+    /*进度条的 css*/
+    #nprogress .bar {
+        background: #29d !important;
+    }
 </style>
