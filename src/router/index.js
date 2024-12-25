@@ -4,6 +4,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import NProgress from 'nprogress'
 // 导入进度条样式
 import 'nprogress/nprogress.css'
+import Layout from "@/layout/Layout.vue";
 
 const routes = [
     {
@@ -15,6 +16,44 @@ const routes = [
         path: '/login',
         component: () => import('@/views/login/Login.vue'),
         meta: {title: '登录'},
+    },
+    {
+        path: '/layout',
+        component: () => import('@/layout/Layout.vue'),
+        meta: {title: '整体布局'},
+    },
+    {
+        path: '/home',
+        component: Layout,
+        children: [
+            {
+                path: '/home',
+                name: '概要',
+                icon: 'odometer',
+                meta: {title: '概要'},
+                component: () => import('@/views/home/Home.vue'),
+            }
+        ]
+    },
+    {
+        path: '/workload',
+        name: '工作负载',
+        component: Layout,
+        icon: 'menu',
+        children: [
+            {
+                path: '/workload/deployment',
+                name: 'Deployment',
+                meta: {title: 'Deployment'},
+                component: () => import('@/views/deployment/Deployment.vue'),
+            },
+            {
+                path: '/workload/pod',
+                name: 'Pod',
+                meta: {title: 'Pod'},
+                component: () => import('@/views/pod/Pod.vue'),
+            },
+        ]
     }
 ]
 
